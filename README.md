@@ -6,6 +6,8 @@ Hash tables are convenient in allowing lookup of data in a fixed amount of time.
 
 How, then, can we guarantee that the hash will take a constant amount of time? That’s what I aimed for with this project.
 
+# Process
+
 To ensure the hash is generated in O(1) time, only a fixed amount of samples can be taken. In this case, 8 bytes are selected from the file.
 
 How are the sample indexes decided? The input is divided into 8 segments, and the sample is taken from a pseudo-random spot in each segment.
@@ -47,6 +49,3 @@ This being said, it does have some shortcomings. For one, because the file is sa
 Additionally, the function is not proven in any way to be mathematically sound. There is no guarantee that all outputs are equally likely, or that every output is possible. The output appears to be random from the limited tests I’ve done, although it’s unlikely there isn’t some sort of underlying pattern.
 
 Lastly, some indexes will get sampled multiple times with inputs larger than 8 bytes. This is a bug I hope to iron out in future versions.
-
-[Repository](https://github.com/jbwx/MicroHash)
-[Home](https://jbwx.github.io)
